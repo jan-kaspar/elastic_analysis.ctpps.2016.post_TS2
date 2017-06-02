@@ -1,0 +1,15 @@
+*.swp
+*.swo
+
+*.pdf
+*.out
+
+*.log_*
+*.root
+
+.*
+!.gitignore
+
+summaries/
+
+optics
