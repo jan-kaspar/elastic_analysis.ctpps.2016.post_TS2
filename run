@@ -124,7 +124,6 @@ function RunOneDir()
 			-I"$CMSSW_BASE/src" \
 			-I"/afs/cern.ch/cms/slc6_amd64_gcc481/external/fastjet/3.0.3/include" \
 			-L"$CMSSW_BASE/lib/slc6_amd64_gcc481" \
-			-lTotemAnalysisTotemNtuplizer \
 			"$src_file" -o "$exe_file" &> "$tag.log_compile"
 
 	# compilation error?
