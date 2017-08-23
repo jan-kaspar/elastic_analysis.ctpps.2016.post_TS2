@@ -5,8 +5,8 @@ string topDir = "../../";
 
 TH2_palette = Gradient(blue, heavygreen, yellow, red);
 
-string file_45b = topDir + "DS2/distributions_45b_56t.root";
-string file_45t = topDir + "DS2/distributions_45t_56b.root";
+string file_45b = topDir + "DS1/distributions_45b_56t.root";
+string file_45t = topDir + "DS1/distributions_45t_56b.root";
 
 string rps[] = { "L_1_F", "L_1_N", "R_1_N", "R_1_F" };
 string rp_labels[] = { "left, 210, far", "left, 210, near", "right, 210, near", "right, 210, far" };
@@ -44,15 +44,17 @@ for (int ri : rps.keys)
 
 	//TH2_z_max = log10(6e2);
 
-	//draw(RootGetObject(file_45b, "hit distributions/vertical, aligned, before selection/h_y_"+rps[ri]+"_vs_x_"+rps[ri]+"_al_nosel"), "p,bar");
-	//draw(RootGetObject(file_45t, "hit distributions/vertical, aligned, before selection/h_y_"+rps[ri]+"_vs_x_"+rps[ri]+"_al_nosel"), "p");
+	//RootObject obj_45b = RootGetObject(file_45b, "hit distributions/vertical, aligned, before selection/h_y_"+rps[ri]+"_vs_x_"+rps[ri]+"_al_nosel");
+	//RootObject obj_45t = RootGetObject(file_45t, "hit distributions/vertical, aligned, before selection/h_y_"+rps[ri]+"_vs_x_"+rps[ri]+"_al_nosel");
 
-	RootGetObject(file_45b, "hit distributions/vertical, aligned, after selection/h_y_"+rps[ri]+"_vs_x_"+rps[ri]+"_al_sel");
-	if (abs(robj.rExec("GetMean", 2)) > 0.1)
-		draw(robj, "p,bar");
-	draw(RootGetObject(file_45t, "hit distributions/vertical, aligned, after selection/h_y_"+rps[ri]+"_vs_x_"+rps[ri]+"_al_sel"), "p");
-	
-	//draw(RootGetObject(file_45t, "hit distributions/vertical, not aligned, after selection/h_y_"+rps[ri]+"_vs_x_"+rps[ri]+"_noal_sel"), "p");
+	RootObject obj_45b = RootGetObject(file_45b, "hit distributions/vertical, aligned, after selection/h_y_"+rps[ri]+"_vs_x_"+rps[ri]+"_al_sel");
+	RootObject obj_45t = RootGetObject(file_45t, "hit distributions/vertical, aligned, after selection/h_y_"+rps[ri]+"_vs_x_"+rps[ri]+"_al_sel");
+
+	if (abs(obj_45b.rExec("GetMean", 2)) > 0.1)
+		draw(obj_45b, "p,bar");
+
+	if (abs(obj_45t.rExec("GetMean", 2)) > 0.1)
+		draw(obj_45t, "p,bar");
 	
 	/*
 	draw(shift(0, sh_top[ri])*det_shape);

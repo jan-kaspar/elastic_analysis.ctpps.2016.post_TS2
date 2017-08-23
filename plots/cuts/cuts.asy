@@ -5,7 +5,7 @@ string topDir = "../../";
 
 TH2_palette = Gradient(blue, heavygreen, yellow, red);
 
-string datasets[] = { "DS2" };
+string datasets[] = { "DS1" };
 
 string dgns[] = { "45b_56t", "45t_56b" };
 //string dgns[] = { "45t_56b" };

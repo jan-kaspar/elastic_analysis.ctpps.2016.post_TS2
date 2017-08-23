@@ -4,7 +4,7 @@ include "../run_info.asy";
 
 string topDir = "../../";
 
-string dataset = "DS2";
+string dataset = "DS1";
 
 string units[] = { "L_1_F", "L_1_N", "R_1_N", "R_1_F" };
 string unit_labels[] = { "left, 210, far", "left, 210, near", "right, 210, near", "right, 210, far" };

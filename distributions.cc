@@ -381,15 +381,15 @@ int main(int argc, char **argv)
 	TGraph *g_timestamp_vs_ev_idx_sel = new TGraph(); g_timestamp_vs_ev_idx_sel->SetName("g_timestamp_vs_ev_idx_sel"); g_timestamp_vs_ev_idx_sel->SetTitle(";event index in distilled TTree;timestamp");
 
 	// book hit-distribution histograms
-	TH2D *h_y_L_1_N_vs_x_L_1_N_noal_sel = new TH2D("h_y_L_1_N_vs_x_L_1_N_noal_sel", ";x^{L,1,N};y^{L,1,N}", 150, -15., 15., 300, -30., +30.);
-	TH2D *h_y_L_1_F_vs_x_L_1_F_noal_sel = new TH2D("h_y_L_1_F_vs_x_L_1_F_noal_sel", ";x^{L,1,F};y^{L,1,F}", 150, -15., 15., 300, -30., +30.);
-	TH2D *h_y_R_1_N_vs_x_R_1_N_noal_sel = new TH2D("h_y_R_1_N_vs_x_R_1_N_noal_sel", ";x^{R,1,N};y^{R,1,N}", 150, -15., 15., 300, -30., +30.);
-	TH2D *h_y_R_1_F_vs_x_R_1_F_noal_sel = new TH2D("h_y_R_1_F_vs_x_R_1_F_noal_sel", ";x^{R,1,F};y^{R,1,F}", 150, -15., 15., 300, -30., +30.);
+	TH2D *h_y_L_1_N_vs_x_L_1_N_noal_sel = new TH2D("h_y_L_1_N_vs_x_L_1_N_noal_sel", ";x^{L,1,N};y^{L,1,N}", 50, -2., 2., 70, -7., +7.);
+	TH2D *h_y_L_1_F_vs_x_L_1_F_noal_sel = new TH2D("h_y_L_1_F_vs_x_L_1_F_noal_sel", ";x^{L,1,F};y^{L,1,F}", 50, -2., 2., 70, -7., +7.);
+	TH2D *h_y_R_1_N_vs_x_R_1_N_noal_sel = new TH2D("h_y_R_1_N_vs_x_R_1_N_noal_sel", ";x^{R,1,N};y^{R,1,N}", 50, -2., 2., 70, -7., +7.);
+	TH2D *h_y_R_1_F_vs_x_R_1_F_noal_sel = new TH2D("h_y_R_1_F_vs_x_R_1_F_noal_sel", ";x^{R,1,F};y^{R,1,F}", 50, -2., 2., 70, -7., +7.);
 
-	TH2D *h_y_L_1_N_vs_x_L_1_N_al_nosel = new TH2D("h_y_L_1_N_vs_x_L_1_N_al_nosel", ";x^{L,1,N};y^{L,1,N}", 150, -15., 15., 300, -30., +30.);
-	TH2D *h_y_L_1_F_vs_x_L_1_F_al_nosel = new TH2D("h_y_L_1_F_vs_x_L_1_F_al_nosel", ";x^{L,1,F};y^{L,1,F}", 150, -15., 15., 300, -30., +30.);
-	TH2D *h_y_R_1_N_vs_x_R_1_N_al_nosel = new TH2D("h_y_R_1_N_vs_x_R_1_N_al_nosel", ";x^{R,1,N};y^{R,1,N}", 150, -15., 15., 300, -30., +30.);
-	TH2D *h_y_R_1_F_vs_x_R_1_F_al_nosel = new TH2D("h_y_R_1_F_vs_x_R_1_F_al_nosel", ";x^{R,1,F};y^{R,1,F}", 150, -15., 15., 300, -30., +30.);
+	TH2D *h_y_L_1_N_vs_x_L_1_N_al_nosel = new TH2D("h_y_L_1_N_vs_x_L_1_N_al_nosel", ";x^{L,1,N};y^{L,1,N}", 50, -2., 2., 70, -7., +7.);
+	TH2D *h_y_L_1_F_vs_x_L_1_F_al_nosel = new TH2D("h_y_L_1_F_vs_x_L_1_F_al_nosel", ";x^{L,1,F};y^{L,1,F}", 50, -2., 2., 70, -7., +7.);
+	TH2D *h_y_R_1_N_vs_x_R_1_N_al_nosel = new TH2D("h_y_R_1_N_vs_x_R_1_N_al_nosel", ";x^{R,1,N};y^{R,1,N}", 50, -2., 2., 70, -7., +7.);
+	TH2D *h_y_R_1_F_vs_x_R_1_F_al_nosel = new TH2D("h_y_R_1_F_vs_x_R_1_F_al_nosel", ";x^{R,1,F};y^{R,1,F}", 50, -2., 2., 70, -7., +7.);
 
 	TH2D *h_y_L_1_N_vs_x_L_1_N_al_sel = new TH2D("h_y_L_1_N_vs_x_L_1_N_al_sel", ";x^{L,1,N};y^{L,1,N}", 50, -2., 2., 70, -7., +7.);
 	TH2D *h_y_L_1_F_vs_x_L_1_F_al_sel = new TH2D("h_y_L_1_F_vs_x_L_1_F_al_sel", ";x^{L,1,F};y^{L,1,F}", 50, -2., 2., 70, -7., +7.);
