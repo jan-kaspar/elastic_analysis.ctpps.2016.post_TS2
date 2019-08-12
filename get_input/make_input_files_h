@@ -1,0 +1,73 @@
+#!/bin/bash
+
+#----------------------------------------------------------------------------------------------------
+
+files_per_block="500"
+
+function FlushBuffer()
+{
+	# make work directory
+	dir="../$tag/block$block_idx"
+	mkdir -p "$dir"
+
+	# make input file
+	cat "input_files_template.h" | sed "\
+			s|\$FILES|$buffer|;\
+		" > "$dir/input_files.h"
+
+	# make parameters.h
+	(
+		echo "#include \"../parameters.h\""
+	) > "$dir/parameters.h"
+
+	buffer=""
+	let buffer_size=0
+	let block_idx+=1
+}
+
+function MakeOne()
+{
+	local tag="$1"
+	local search="$2"
+
+	# get input files
+	buffer=""
+	buffer_size="0"
+	block_idx="0"
+	for f in `eos ls "$eos_dir"|grep "$search"|grep ".root"`
+	do
+		if [ -n "$buffer" ]
+		then
+			buffer="$buffer,\n"
+		fi
+
+		buffer="${buffer}\t\t\"root://eostotem.cern.ch/${eos_dir}/${f}\""
+		let buffer_size+=1
+
+		if [ "$buffer_size" -ge "$files_per_block" ]
+		then
+			FlushBuffer
+		fi
+	done
+	
+	if [ "$buffer_size" -gt "0" ]
+	then
+		FlushBuffer
+	fi
+}
+
+#----------------------------------------------------------------------------------------------------
+
+eos_dir="/eos/cms/store/group/phys_pps/reconstruction/2016/alignment_run_September/version1-test"
+
+MakeOne "DS-run-10322" "10322"
+MakeOne "DS-run-10323" "10323"
+MakeOne "DS-run-10324" "10324"
+MakeOne "DS-run-10325" "10325"
+MakeOne "DS-run-10326" "10326"
+MakeOne "DS-run-10327" "10327"
+MakeOne "DS-run-10328" "10328"
+MakeOne "DS-run-10329" "10329"
+MakeOne "DS-run-10331" "10331"
+MakeOne "DS-run-10332" "10332"
+

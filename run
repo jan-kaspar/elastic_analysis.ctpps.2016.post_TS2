@@ -118,13 +118,16 @@ function RunOneDir()
 	cd "$dir"
 	
 	echo "$tag @ $dir > compiling"
-	g++ -O3 -g -Wall -Wextra -Werror --std=c++11\
+	g++ -O3 -g -Wall -Wextra  -Wno-attributes --std=c++11\
 			-I"$top_dir" \
 			`root-config --libs` -lMinuit -lMinuit2 `root-config --cflags` \
 			-I"$CMSSW_BASE/src" \
-			-I"/afs/cern.ch/cms/slc6_amd64_gcc481/external/fastjet/3.0.3/include" \
-			-L"$CMSSW_BASE/lib/slc6_amd64_gcc481" \
-			-lTotemAnalysisTotemNtuplizer \
+			-I"$CMSSW_RELEASE_BASE/src" \
+			-L"$CMSSW_BASE/lib/slc7_amd64_gcc700" \
+			-L"$CMSSW_RELEASE_BASE/lib/slc7_amd64_gcc700" \
+			-lDataFormatsFWLite \
+			-lDataFormatsCommon \
+			-lDataFormatsCTPPSDetId \
 			"$src_file" -o "$exe_file" &> "$tag.log_compile"
 
 	# compilation error?

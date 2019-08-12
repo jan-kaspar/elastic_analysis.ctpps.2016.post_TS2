@@ -3,7 +3,10 @@
 #include <map>
 #include <cmath>
 
-double timestamp0 = 1461103200;
+// TODO
+double timestamp0 = 1537567200;
+
+vector<string> distilledNtuples;
 
 vector<AlignmentSource> alignmentSources;
 Analysis anal;
@@ -14,25 +17,26 @@ string unsmearing_object;
 
 string luminosity_data_file;
 
-void Init_base()
+void Init_global()
 {
 	// selection of bunches
 	keepAllBunches = true;
 
 	// alignment settings
-
+	/*
 	AlignmentSource alSrc;
 	alSrc.SetAlignmentA(atConstant);
 	alSrc.SetAlignmentB(atConstant);
 	alSrc.SetAlignmentC(atConstant);
 
-	alSrc.cnst.a_L_1_F = -16.2E-3; alSrc.cnst.b_L_1_F = +2.09; alSrc.cnst.c_L_1_F = 0E-3;
-	alSrc.cnst.a_L_1_N = -20.5E-3; alSrc.cnst.b_L_1_N = +2.46; alSrc.cnst.c_L_1_N = 0E-3;
+	alSrc.cnst.a_L_1_F = 0E-3; alSrc.cnst.b_L_1_F = 0.; alSrc.cnst.c_L_1_F = 0E-3;
+	alSrc.cnst.a_L_1_N = 0E-3; alSrc.cnst.b_L_1_N = 0.; alSrc.cnst.c_L_1_N = 0E-3;
                                                                        
-	alSrc.cnst.a_R_1_N = +20.0E-3; alSrc.cnst.b_R_1_N = +2.60; alSrc.cnst.c_R_1_N = 0E-3;
-	alSrc.cnst.a_R_1_F = +25.0E-3; alSrc.cnst.b_R_1_F = +1.67; alSrc.cnst.c_R_1_F = 0E-3;
+	alSrc.cnst.a_R_1_N = 0E-3; alSrc.cnst.b_R_1_N = 0.; alSrc.cnst.c_R_1_N = 0E-3;
+	alSrc.cnst.a_R_1_F = 0E-3; alSrc.cnst.b_R_1_F = 0.; alSrc.cnst.c_R_1_F = 0E-3;
 	
 	alignmentSources.push_back(alSrc);
+	*/
 
 	// environment settings
 	env.InitNominal();
@@ -80,14 +84,11 @@ void Init_base()
 	anal.t_min_fit = 0.027; // TODO
 #endif
 
-	anal.alignment_t0 = 0.;			// beginning of the first time-slice
-	anal.alignment_ts = 60.*60.;	// time-slice in s
-	
 	// TODO
-	anal.alignmentYRanges["L_1_F"] = Analysis::AlignmentYRange(-17., -3.0, +3.4, 17.);
-	anal.alignmentYRanges["L_1_N"] = Analysis::AlignmentYRange(-17., -3.4, +3.7, 17.);
-	anal.alignmentYRanges["R_1_N"] = Analysis::AlignmentYRange(-17., -3.2, +1., 17.);
-	anal.alignmentYRanges["R_1_F"] = Analysis::AlignmentYRange(-17., -3.0, +3.8, 17.);
+	anal.alignmentYRanges["L_2_F"] = Analysis::AlignmentYRange(-40., -0.0, +0.0, +40.);
+	anal.alignmentYRanges["L_1_F"] = Analysis::AlignmentYRange(-40., -0.0, +0.0, +40.);
+	anal.alignmentYRanges["R_1_F"] = Analysis::AlignmentYRange(-40., -0.0, +0.0, +40.);
+	anal.alignmentYRanges["R_2_F"] = Analysis::AlignmentYRange(-40., -0.0, +0.0, +40.);
 
 #if 0
 	// TODO
@@ -103,19 +104,19 @@ void Init_base()
 
 //----------------------------------------------------------------------------------------------------
 
-void Init_45b_56t()
+void Init_global_45b_56t()
 {
 	// analysis settings
-	anal.cut1_a = 1.; anal.cut1_c =  +0E-6; anal.cut1_si = 130E-6;
-	anal.cut2_a = 1.; anal.cut2_c = +72E-6; anal.cut2_si = 30E-6;
+	//anal.cut1_a = 1.; anal.cut1_c = -240E-6; anal.cut1_si = 150E-6;
+	//anal.cut2_a = 1.; anal.cut2_c = +435E-6; anal.cut2_si = 40E-6;
 
-	//anal.cut3_c = 0.01; anal.cut3_si = 0.07;
-	anal.cut4_a = 220.; anal.cut4_c = 0.; anal.cut4_si = 0.040;
-	
-	//anal.cut5_a = -0.13; anal.cut5_c = -0.; anal.cut5_si = 0.030;
-	anal.cut6_a = -0.13; anal.cut6_c = -0.13; anal.cut6_si = 0.030;
+	//anal.cut3_c = 0.49; anal.cut3_si = 0.055;
+	//anal.cut4_c = -0.03; anal.cut4_si = 0.033;
 
-	//anal.cut7_a = 153.; anal.cut7_c = 0.; anal.cut7_si = 0.011;
+	//anal.cut5_a = -0.100; anal.cut5_c = -0.91; anal.cut5_si = 0.04;
+	anal.cut6_a = -0.099; anal.cut6_c = -0.08; anal.cut6_si = 0.04;
+
+	//anal.cut7_a = 0.0; anal.cut7_c = 0.55; anal.cut7_si = 10.0;
 
 	anal.th_y_lcut_L = 13.5E-6; anal.th_y_lcut_R = 14E-6; anal.th_y_lcut = 14.5E-6;
 	anal.th_y_hcut_L = 102E-6; anal.th_y_hcut_R = 102E-6; anal.th_y_hcut = 100E-6;
@@ -133,19 +134,19 @@ void Init_45b_56t()
 
 //----------------------------------------------------------------------------------------------------
 
-void Init_45t_56b()
+void Init_global_45t_56b()
 {
 	// analysis settings
-	anal.cut1_a = 1.; anal.cut1_c = +0E-6; anal.cut1_si = 150E-6;
-	anal.cut2_a = 1.; anal.cut2_c = +14E-6; anal.cut2_si = 30E-6;
+	//anal.cut1_a = 1.; anal.cut1_c = -290E-6; anal.cut1_si = 150E-6;
+	//anal.cut2_a = 1.; anal.cut2_c = +425E-6; anal.cut2_si = 40E-6;
 
-	//anal.cut3_c = 0.0; anal.cut3_si = 0.07;
-	anal.cut4_a = 229.; anal.cut4_c = 0.; anal.cut4_si = 0.040;
+	//anal.cut3_c = 0.43; anal.cut3_si = 0.023;
+	//anal.cut4_c = -0.055; anal.cut4_si = 0.031;
 
-	//anal.cut5_a = -0.13; anal.cut5_c = +0.254; anal.cut5_si = 0.020;
-	anal.cut6_a = -0.13; anal.cut6_c = -0.2; anal.cut6_si = 0.030;
+	//anal.cut5_a = -0.134; anal.cut5_c = -0.96; anal.cut5_si = 0.04;
+	anal.cut6_a = -0.091; anal.cut6_c = -0.24; anal.cut6_si = 0.04;
 
-	//anal.cut7_a = 165.; anal.cut7_c = +0.002; anal.cut7_si = 0.011;
+	//anal.cut7_a = 0.0; anal.cut7_c = 0.8; anal.cut7_si = 10.0;
 
 	anal.th_y_lcut_L = 13.5E-6; anal.th_y_lcut_R = 13.5E-6; anal.th_y_lcut = 14.5E-6;
 	anal.th_y_hcut_L = 102E-6; anal.th_y_hcut_R = 102E-6; anal.th_y_hcut = 100E-6;

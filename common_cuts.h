@@ -5,24 +5,20 @@ void Analysis::BuildCuts()
 	// cut structure:
 	//	| a*qa + b*qb + c| < n_si * si
 
-	// a: th_x_R, b: th_x_L
 	cqaN[1] = "#theta_{x}^{R}"; cqbN[1] = "#theta_{x}^{L}";
 	cca[1] = -cut1_a;
 	ccb[1] = 1.;
 	ccc[1] = cut1_c;
 	csi[1] = cut1_si;
-	// TODO: uncomment
 	//cuts.push_back(1);
 	
-	// a: th_y_R, b: th_y_L
 	cqaN[2] = "#theta_{y}^{R}"; cqbN[2] = "#theta_{y}^{L}";
 	cca[2] = -cut2_a;
 	ccb[2] = 1.;
 	ccc[2] = cut2_c;
 	csi[2] = cut2_si;
-	cuts.push_back(2);
+	//cuts.push_back(2);
 
-	// a: th_x_R, b: vtx_x_R
 	cqaN[3] = "#theta_{x}^{R}"; cqbN[3] = "vtx_{x}^{R}";
 	cca[3] = -cut3_a;
 	ccb[3] = 1.;
@@ -30,24 +26,21 @@ void Analysis::BuildCuts()
 	csi[3] = cut3_si;
 	//cuts.push_back(3);
 	
-	// a: th_x_L, b: vtx_x_L
 	cqaN[4] = "#theta_{x}^{L}"; cqbN[4] = "vtx_{x}^{L}";
 	cca[4] = -cut4_a;
 	ccb[4] = 1.;
 	ccc[4] = cut4_c;
 	csi[4] = cut4_si;
-	// TODO: uncomment
 	//cuts.push_back(4);
 	
-	// a: y_R_1_F, b: y_R_1_F - y_R_1_N
 	cqaN[5] = "y^{R,1,F}"; cqbN[5] = "y^{R,1,F} - y^{R,1,N}";
 	cca[5] = -cut5_a;
 	ccb[5] = 1.;
 	ccc[5] = cut5_c;
 	csi[5] = cut5_si;
+	// NB: no data from R-210-nr
 	//cuts.push_back(5);
 	
-	// a: y_L_1_F, b: y_L_1_F - y_L_1_N
 	cqaN[6] = "y^{L,1,F}"; cqbN[6] = "y^{L,1,F} - y^{L,1,N}";
 	cca[6] = -cut6_a;
 	ccb[6] = 1.;
@@ -55,7 +48,6 @@ void Analysis::BuildCuts()
 	csi[6] = cut6_si;
 	cuts.push_back(6);
 	
-	// a: th_x, b: vtx_x_R - vtx_x_L
 	cqaN[7] = "#theta_{x}"; cqbN[7] = "vtx_{x}^{R} - vtx_{x}^{L}";
 	cca[7] = -cut7_a;
 	ccb[7] = 1.;
@@ -63,7 +55,6 @@ void Analysis::BuildCuts()
 	csi[7] = cut7_si;
 	//cuts.push_back(7);
 	
-	// a: th_y, b: vtx_y_R - vtx_y_L
 	cqaN[8] = "#theta_{y}"; cqbN[8] = "vtx_{y}^{R} - vtx_{y}^{L}";
 	cca[8] = -cut8_a;
 	ccb[8] = 1.;
