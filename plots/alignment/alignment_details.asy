@@ -4,7 +4,10 @@ include "../run_info.asy";
 
 string topDir = "../../";
 
-string dataset = "DS1";
+//string dataset = "DS-run-10322";
+string dataset = "DS-run-10323";
+//string dataset = "DS-run-10327";
+//string dataset = "DS-run-10332";
 
 string units[] = { "L_1_F", "L_1_N", "R_1_N", "R_1_F" };
 string unit_labels[] = { "left, 210, far", "left, 210, near", "right, 210, near", "right, 210, far" };
@@ -19,7 +22,7 @@ drawGridDef = true;
 
 TGraph_errorBar = None;
 
-string period = "period 3771";
+string period = "period 0";
 
 //----------------------------------------------------------------------------------------------------
 NewRow();
@@ -29,14 +32,18 @@ for (int ui : units.keys)
 	NewPad("$y\ung{mm}$", "$\hbox{mean } x\ung{mm}$");
 
 	draw(RootGetObject(topDir+dataset+"/alignment.root", period + "/unit "+units[ui]+"/horizontal/horizontal profile/p"), "d0,eb", blue);
-	draw(RootGetObject(topDir+dataset+"/alignment.root", period + "/unit "+units[ui]+"/horizontal/horizontal profile/p|ff"), "l", red+1pt);
+
+	RootObject fit = RootGetObject(topDir+dataset+"/alignment.root", period + "/unit "+units[ui]+"/horizontal/horizontal profile/p|ff", error=false);
+	if (fit.valid)
+		draw(fit, "l", red+1pt);
 	
 	//limits((-7, 2), (+7, 4), Crop);
-	limits((-5, 1), (+5, 3), Crop);
+	limits((-6, 1), (+6, 3), Crop);
 	AttachLegend(unit_labels[ui], NE, NE);
 }
 
 //----------------------------------------------------------------------------------------------------
+/*
 NewRow();
 
 for (int ui : units.keys)
@@ -67,3 +74,4 @@ for (int ui : units.keys)
 	limits((-2.5, 0), (+2.5, 1), Crop);
 	AttachLegend(unit_labels[ui], NE, NE);
 }
+*/

@@ -58,7 +58,7 @@ function MakeOne()
 
 #----------------------------------------------------------------------------------------------------
 
-eos_dir="/eos/cms/store/group/phys_pps/reconstruction/2016/alignment_run_September/version1-test"
+eos_dir="/eos/cms/store/group/phys_pps/reconstruction/2016/alignment_run_September/version2"
 
 MakeOne "DS-run-10322" "10322"
 MakeOne "DS-run-10323" "10323"

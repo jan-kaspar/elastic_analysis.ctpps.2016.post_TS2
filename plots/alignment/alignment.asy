@@ -4,16 +4,21 @@ include "../run_info.asy";
 
 string topDir = "../../";
 
-string datasets[] = { "DS1" };
+string datasets[] = {
+	"DS-run-10322",
+	//"DS-run-10323",
+	//"DS-run-10324",
+	"DS-run-10325",
+	"DS-run-10326",
+	"DS-run-10327",
+	"DS-run-10328",
+	"DS-run-10329",
+	"DS-run-10331",
+	"DS-run-10332",
+};
 
 string units[] = { "L_1_F", "L_1_N", "R_1_N", "R_1_F" };
-string unit_labels[] = { "left, 210, far", "left, 210, near", "right, 210, near", "right, 210, far" };
-
-/*
-string units[] = { "L_1_F", "L_1_N", "R_1_F" };
-string unit_labels[] = { "left, 210, far", "left, 210, near", "right, 210, far" };
-*/
-
+string unit_labels[] = { "45-210-fr", "45-210-nr", "56-210-nr", "56-210-fr" };
 
 xSizeDef = 12cm;
 xTicksDef = LeftTicks(Step=1, step=0.5);
@@ -39,17 +44,16 @@ for (int ui : units.keys)
 			draw(swToHours, RootGetObject(topDir+datasets[di]+"/alignment.root", "global/"+units[ui]+"/a_g"), "p,l,eb", heavygreen, mCi+1pt+heavygreen);
 		
 		//draw(swToHours, RootGetObject(topDir+datasets[di]+"/alignment.root", "global/"+units[ui]+"/a"), "p,l,eb", blue, mCi+1pt+blue);
-	
-		if (drawFits)
-		{
-			real unc = 4;
-			RootGetObject(topDir+datasets[di]+"/alignment_fit.root", ""+units[ui]+"/a_fit");
-			draw(shift(0, +unc)*swToHours, robj, "l", red+dashed);
-			draw(shift(0,    0)*swToHours, robj, "l", red+2pt);
-			draw(shift(0, -unc)*swToHours, robj, "l", red+dashed);
-		}
 	}
 	
+	if (drawFits)
+	{
+		real unc = 4;
+		RootGetObject(topDir+"alignment/global_fit.root", ""+units[ui]+"/a_fit");
+		draw(shift(0, +unc)*swToHours, robj, "l", red+dashed);
+		draw(shift(0,    0)*swToHours, robj, "l", red+2pt);
+		draw(shift(0, -unc)*swToHours, robj, "l", red+dashed);
+	}
 
 	//limits((time_min, 0), (time_max, +40), Crop);
 	AttachLegend(unit_labels[ui], SE, SE);
@@ -78,15 +82,15 @@ for (int ui : units.keys)
 			draw(swToHours, RootGetObject(topDir+datasets[di]+"/alignment.root", "global/"+units[ui]+"/b_g"), "p,l,eb", heavygreen, mCi+1pt+heavygreen);
 
 		//draw(swToHours, RootGetObject(topDir+datasets[di]+"/alignment.root", "global/"+units[ui]+"/b"), "p,l,eb", blue+1pt, mCi+1pt+blue);
+	}
 	
-		if (drawFits)
-		{
-			real unc = 30;
-			RootGetObject(topDir+datasets[di]+"/alignment_fit.root", ""+units[ui]+"/b_fit");
-			draw(shift(0, +unc)*swToHours, robj, "l", red+dashed);
-			draw(shift(0,    0)*swToHours, robj, "l", red+2pt);
-			draw(shift(0, -unc)*swToHours, robj, "l", red+dashed);
-		}
+	if (drawFits)
+	{
+		real unc = 30;
+		RootGetObject(topDir+"/alignment/global_fit.root", ""+units[ui]+"/b_fit");
+		draw(shift(0, +unc)*swToHours, robj, "l", red+dashed);
+		draw(shift(0,    0)*swToHours, robj, "l", red+2pt);
+		draw(shift(0, -unc)*swToHours, robj, "l", red+dashed);
 	}
 
 	//limits((time_min, -100), (time_max, +100), Crop);
@@ -94,6 +98,7 @@ for (int ui : units.keys)
 }
 
 //----------------------------------------------------------------------------------------------------
+/*
 NewRow();
 
 for (int ui : units.keys)
@@ -128,6 +133,7 @@ for (int ui : units.keys)
 	//limits((time_min, -500), (time_max, +500), Crop);
 	AttachLegend(unit_labels[ui], SE, SE);
 }
+*/
 
 //----------------------------------------------------------------------------------------------------
 

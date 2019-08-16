@@ -5,13 +5,24 @@ string topDir = "../../";
 
 TH2_palette = Gradient(blue, heavygreen, yellow, red);
 
-string datasets[] = { "DS1" };
+string datasets[] = {
+	"DS-run-10322",
+	"DS-run-10323",
+	"DS-run-10324",
+	"DS-run-10325",
+	"DS-run-10326",
+	"DS-run-10327",
+	"DS-run-10328",
+	"DS-run-10329",
+	"DS-run-10331",
+	"DS-run-10332",
+};
 
 string dgns[] = { "45b_56t", "45t_56b" };
 //string dgns[] = { "45t_56b" };
 
 //int cuts[] = { 1, 2, 3, 4, 5, 6, 7, 8 };
-int cuts[] = { 1, 2, 4, 6 };
+int cuts[] = { 6 };
 
 real scale_x[] = { 1e6, 1e6, 1e6, 1e6, 1e0, 1e0, 1e6, 1e6 };
 real scale_y[] = { 1e6, 1e6, 1e0, 1e0, 1e0, 1e0, 1e0, 1e0 };
@@ -71,7 +82,7 @@ for (int ci : cuts.keys)
 			
 			NewPad(label_cut[idx]);
 			string objH = format("elastic cuts/cut %i", cut) + format("/h_cq%i", cut);
-			draw(scale(scale_y[idx], 1.), RootGetObject(f, objH+""), "vl,eb,lR");
+			draw(scale(scale_y[idx], 1.), RootGetObject(f, objH+""), "vl,eb,lM,lR");
 			//draw(scale(scale_x[idx], scale_y[idx]), RootGetObject(f, objH+"|gaus"));
 			AttachLegend();
 		}

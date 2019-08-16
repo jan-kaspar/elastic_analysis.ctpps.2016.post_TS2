@@ -3,8 +3,7 @@
 #include <map>
 #include <cmath>
 
-// TODO
-double timestamp0 = 1537567200;
+double timestamp0 = 1474581600;
 
 vector<string> distilledNtuples;
 
@@ -85,10 +84,10 @@ void Init_global()
 #endif
 
 	// TODO
-	anal.alignmentYRanges["L_2_F"] = Analysis::AlignmentYRange(-40., -0.0, +0.0, +40.);
-	anal.alignmentYRanges["L_1_F"] = Analysis::AlignmentYRange(-40., -0.0, +0.0, +40.);
-	anal.alignmentYRanges["R_1_F"] = Analysis::AlignmentYRange(-40., -0.0, +0.0, +40.);
-	anal.alignmentYRanges["R_2_F"] = Analysis::AlignmentYRange(-40., -0.0, +0.0, +40.);
+	anal.alignmentYRanges["L_1_F"] = Analysis::AlignmentYRange(-40., -2.9, +3.4, +40.);
+	anal.alignmentYRanges["L_1_N"] = Analysis::AlignmentYRange(-40., -3.4, +3.7, +40.);
+	anal.alignmentYRanges["R_1_N"] = Analysis::AlignmentYRange(-40., -3.1, +0.0, +40.);
+	anal.alignmentYRanges["R_1_F"] = Analysis::AlignmentYRange(-40., -3.2, +3.7, +40.);
 
 #if 0
 	// TODO
@@ -114,7 +113,7 @@ void Init_global_45b_56t()
 	//anal.cut4_c = -0.03; anal.cut4_si = 0.033;
 
 	//anal.cut5_a = -0.100; anal.cut5_c = -0.91; anal.cut5_si = 0.04;
-	anal.cut6_a = -0.099; anal.cut6_c = -0.08; anal.cut6_si = 0.04;
+	anal.cut6_a = -0.099; anal.cut6_c = -0.27; anal.cut6_si = 0.04;
 
 	//anal.cut7_a = 0.0; anal.cut7_c = 0.55; anal.cut7_si = 10.0;
 
@@ -144,7 +143,7 @@ void Init_global_45t_56b()
 	//anal.cut4_c = -0.055; anal.cut4_si = 0.031;
 
 	//anal.cut5_a = -0.134; anal.cut5_c = -0.96; anal.cut5_si = 0.04;
-	anal.cut6_a = -0.091; anal.cut6_c = -0.24; anal.cut6_si = 0.04;
+	anal.cut6_a = -0.091; anal.cut6_c = -0.04; anal.cut6_si = 0.04;
 
 	//anal.cut7_a = 0.0; anal.cut7_c = 0.8; anal.cut7_si = 10.0;
 

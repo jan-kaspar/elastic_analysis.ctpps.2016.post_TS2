@@ -120,7 +120,7 @@ int main(int argc, char **argv)
 	string cutSelectionString;
 	string outputDir = ".";
 	string inputDir = ".";
-	double input_n_si = 3.0;
+	double input_n_si = 4.0;
 	int time_group_divisor = 0;
 	int time_group_remainder = 0;
 	int event_group_divisor = 0;

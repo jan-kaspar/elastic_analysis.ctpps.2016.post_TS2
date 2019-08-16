@@ -18,11 +18,16 @@ void AddRun(string ds, int r, real f, real t, pen p = yellow)
 	colors.push(p);
 }
 
-AddRun("DS1", 10077, 1220, 4202);
-AddRun("DS1", 10079, 4613, 5509);
-AddRun("DS1", 10080, 5564, 13643);
-AddRun("DS1", 10081, 13702, 16100);
-AddRun("DS1", 10082, 16675, 17420);
+AddRun("DS1", 10322, 84762, 85109);
+AddRun("DS1", 10323, 85123, 86945);
+AddRun("DS1", 10324, 87026, 87947);
+AddRun("DS1", 10325, 87961, 92100);
+AddRun("DS1", 10326, 92120, 92272);
+AddRun("DS1", 10327, 92289, 93618);
+AddRun("DS1", 10328, 93631, 93937);
+AddRun("DS1", 10329, 93962, 94336);
+AddRun("DS1", 10331, 94401, 97434);
+AddRun("DS1", 10332, 97450, 98843);
 
 // in hours
 real time_min = 0;

@@ -827,19 +827,17 @@ int main(int argc, char **argv)
 			TDirectory *unitDir = perDir->mkdir(buf);
 
 			fixTilt = false;
-			/*
 			if (units[ui] == "R_1_N")
 			{
 				fixTilt = true;
-				fixTiltValue = 20E-3;
+				fixTiltValue = 34E-3;
 			}
-			*/
 			
 			gDirectory = unitDir->mkdir("horizontal");
 			DoHorizontalAlignment(g_t, g_b, r, results[units[ui]], periods[pi]);
 			
-			gDirectory = unitDir->mkdir("vertical");
-			DoVerticalAlignment(g_t, gw_t, g_b, gw_b, r, results[units[ui]], periods[pi]);
+			//gDirectory = unitDir->mkdir("vertical");
+			//DoVerticalAlignment(g_t, gw_t, g_b, gw_b, r, results[units[ui]], periods[pi]);
 		}
 	}
 
