@@ -846,10 +846,10 @@ int main(int argc, char **argv)
 		}
 
 		// apply XY cut
-		if (h_al.L_1_F.x < 0. || h_al.L_1_F.x > +4.5 || h_al.L_1_F.y < -5.5 || h_al.L_1_F.y > +5.5) continue;
-		if (h_al.L_1_N.x < 0. || h_al.L_1_N.x > +4.5 || h_al.L_1_N.y < -5.5 || h_al.L_1_N.y > +5.5) continue;
-		//if (h_al.R_1_N.x < 0. || h_al.R_1_N.x > +4.5 || h_al.R_1_N.y < -5.5 || h_al.R_1_N.y > +5.5) continue;
-		if (h_al.R_1_F.x < 0. || h_al.R_1_F.x > +4.5 || h_al.R_1_F.y < -5.5 || h_al.R_1_F.y > +5.5) continue;
+		if (h_al.L_1_F.x < -2.3 || h_al.L_1_F.x > +2.3 || h_al.L_1_F.y < -5.5 || h_al.L_1_F.y > +5.5) continue;
+		if (h_al.L_1_N.x < -2.3 || h_al.L_1_N.x > +2.3 || h_al.L_1_N.y < -5.5 || h_al.L_1_N.y > +5.5) continue;
+		//if (h_al.R_1_N.x < -2.3 || h_al.R_1_N.x > +2.3 || h_al.R_1_N.y < -5.5 || h_al.R_1_N.y > +5.5) continue;
+		if (h_al.R_1_F.x < -2.3 || h_al.R_1_F.x > +2.3 || h_al.R_1_F.y < -5.5 || h_al.R_1_F.y > +5.5) continue;
 
 		// run reconstruction
 		Kinematics k = DoReconstruction(h_al, env);

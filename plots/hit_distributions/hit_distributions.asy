@@ -90,7 +90,7 @@ for (int seli : s_dirs.keys)
 
 			//draw(shift(6.2, 0)*rotate(-90)*det_shape);
 
-			real x_min = 0., x_max = +4.5;
+			real x_min = -2.3, x_max = +2.3;
 			real y_min = -5.5, y_max = +5.5;
 
 			draw((x_min, y_min)--(x_max, y_min)--(x_max, y_max)--(x_min, y_max)--cycle, black+2pt);
