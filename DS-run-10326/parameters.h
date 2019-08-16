@@ -9,9 +9,8 @@ void Init_base()
 	distilledNtuples.push_back("block0");
 
 	// alignment periods
-	// TODO
-	anal.alignment_t0 = 0;		// beginning of the first time-slice
-	anal.alignment_ts = 0;		// time-slice in s
+	anal.alignment_t0 = 92120;		// beginning of the first time-slice
+	anal.alignment_ts = 92272 - 92120 + 30;		// time-slice in s
 }
 
 //----------------------------------------------------------------------------------------------------
